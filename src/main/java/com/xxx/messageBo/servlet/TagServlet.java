@@ -42,7 +42,7 @@ public class TagServlet extends HttpServlet {
 		String type=request.getParameter("role");
 		int role=Integer.parseInt(type);
 		if(userDao.setUserTag(userId, role)){
-			response.sendRedirect("userManager.jsp");
+			response.sendRedirect("SelectUserServlet");
 		}
 	}
 

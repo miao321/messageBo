@@ -1,7 +1,8 @@
 <%@ page import="com.xxx.messageBo.bean.*" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.xxx.messageBo.dao.*" %>
-<%-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> --%>
+<%@ page isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -45,12 +46,12 @@
 					<th>授权发帖</th>
 					<th>删除</th>
 				</tr>
-				<%
+				<%-- <%
 				List<User> users=(List<User>)request.getAttribute("userList");
 				if(users!=null){
 					for(User user:users){
-				%>
-				<%-- <c:forEach var="user" items="${userList }"> --%>
+				%> --%>
+			 <c:forEach var="user" items="${userList }"> 
 					<tr height="36px">
 						<th>${user.userId }</th> 
 						<th>${user.username }</th>
@@ -58,11 +59,11 @@
 						<th><a href="TagServlet?userId=${user.userId }&role=0">授权发帖</a></th>
 						<th><a href="DelUserServlet?userId=${user.userId }">删除</a></th>
 					</tr>
-				<%-- </c:forEach> --%>
-				<%
+				</c:forEach> 
+				<%-- <%
 					}
 				}
-				%>
+				%> --%>
 			</table>
 			<div>
 				<ul class="p2">
