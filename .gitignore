@@ -1,4 +1,13 @@
-*.[settingsclasspathproject]
+#ignore eclipse files
+.settings
+.classpath
+.project
+
+#ignore maven target floder
+target/
+
+# ignore jar files
+*.jar 
 
 
 
