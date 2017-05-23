@@ -8,6 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>主页</title>
+<link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet" type="text/css">
 <script src="js/jquery-1.7.1.min.js" type="text/javascript"> </script>
 <script src="js/script.js" type="text/javascript"> </script>
@@ -50,8 +51,9 @@
 							if(user!=null){
 						%>
 						<li><a href="changePassword.jsp">修改密码</a></li>
+						<li><a href="#">我的好友</a></li>
 						<li><a href="ExitServlet">注销</a></li>
-						<li style="float: right;margin-right:-290px;">欢迎您:<%=user.getUsername() %></li>
+						<li style="float: right;margin-right:-290px;color:white;padding:0 20px;font-size: 14px;font-weight: bold;">欢迎您:<%=user.getUsername() %></li>
 						<%
 							}
 						%>
@@ -96,6 +98,10 @@
 					<li class="func"><img src="images/edit.png" alt="编辑" onclick="jump(<%=msg.getMessageId()%>)"></li>
 					<%
 							}
+						}if(!author.equals(msg.getAuthor())){
+					%>
+					<li class="func"><span class="glyphicon glyphicon-plus"></span></li>
+					<%
 						}
 					%>
 					<li class="nav">

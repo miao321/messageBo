@@ -21,10 +21,11 @@
 				<%--<img src="images/logo.jpg"> --%>
 			</div>
 			<div id="head">
-				<div id="nav">
+				<div id="nav" >
 					<ul>
 						<li><a href="SelectServlet">主页</a></li>
 						<li><a href="changePassword.jsp">修改密码</a></li>
+						<li><a href="addUser.jsp">添加用户</a></li>
 						<li><a href="ExitServlet">注销</a></li>
 					</ul>
 				</div>
@@ -37,7 +38,7 @@
 			</div>
 			
 			<div><img src="images/add.png"></div>
-			<div id="func"><p><a href="addUser.jsp">添加用户</a></p></div>
+			
 			<table id="table" bordercolor="#99CCFF" border='1px' cellspacing='0px'>
 				<tr bgcolor="#e4eef9" height="36px">
 					<th>userId</th>

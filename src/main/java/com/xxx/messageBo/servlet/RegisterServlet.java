@@ -39,6 +39,8 @@ public class RegisterServlet extends HttpServlet {
 		try{
 			if(userDao.insertUser(userName, password)){
 				pw.println("success");
+				//response.sendRedirect("login.jsp");
+				//request.getRequestDispatcher("login.jsp").forward(request, response);
 			}else{
 				pw.println("failure");
 			}

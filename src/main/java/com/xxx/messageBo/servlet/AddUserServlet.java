@@ -16,7 +16,7 @@ import com.xxx.messageBo.dao.impl.UserDaoImpl;
  */
 public class AddUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -46,5 +46,5 @@ public class AddUserServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 	}
-
+		
 }
