@@ -7,15 +7,28 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.xxx.messageBo.bean.User;
+import com.xxx.messageBo.bean.Relation;
+import com.xxx.messageBo.dao.RelationDao;
 import com.xxx.messageBo.dao.UserDao;
+import com.xxx.messageBo.dao.impl.RelationDaoImpl;
 import com.xxx.messageBo.dao.impl.UserDaoImpl;
 
 /**
- * Servlet implementation class RegisterServlet
+ * Servlet implementation class AddFriendServlet
  */
-public class RegisterServlet extends HttpServlet {
+public class AddFriendServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public AddFriendServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -30,25 +43,20 @@ public class RegisterServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		RelationDao relationDao=new RelationDaoImpl();
 		UserDao userDao=new UserDaoImpl();
 		PrintWriter pw=response.getWriter();
 		request.setCharacterEncoding("UTF-8");
-		String userName=request.getParameter("userName");
-		String password=request.getParameter("password");
-		String confirmPassword=request.getParameter("confirmPassword");
-		try{
-			if(userDao.insertUser(userName, password)){
-				response.sendRedirect("login.jsp");
-//				pw.println("success");
-				//response.sendRedirect("login.jsp");
-				//request.getRequestDispatcher("login.jsp").forward(request, response);
-			}else{
-//				pw.println("failure");
-				response.sendRedirect("error.jsp");
-			}
-		}catch(Exception e){
-			e.printStackTrace();
-		}
+		response.setCharacterEncoding("Utf-8");
+		HttpSession session=request.getSession();
+		User user=(User)session.getAttribute("user");
+		Relation rel=(Relation)session.getAttribute("rel");
+		int userId=rel.getUserId();
+		int friendId=rel.getFriendId();
+		String setTime=rel.getDate();
+		
+		
+		
 	}
 
 }

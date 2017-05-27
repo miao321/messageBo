@@ -44,13 +44,20 @@ public class UserLoginServlet extends HttpServlet {
 		PrintWriter pw=response.getWriter();
 		HttpSession session=request.getSession();
 		String loginName=request.getParameter("loginName");
+		System.out.println("loginName1:" + loginName);
 		String password=request.getParameter("password");
+		System.out.println("password:"+password);
 		User user=(User)userDao.loginSelect(loginName, password);
-		if(user.getUsername()==null||user.getRole()==1){
-			pw.println("failure");
+		if(user.getUsername()==null||user.getRole()==1||user.getUsername()==" "){
+			response.sendRedirect("error.jsp");
 		}else{	
 			session.setAttribute("user", user);
-			pw.println("success");
+			if(loginName==""||password==""){
+				response.sendRedirect("error.jsp");
+			}else{
+				response.sendRedirect("SelectServlet");
+			}
+			
 		}
 	}
 

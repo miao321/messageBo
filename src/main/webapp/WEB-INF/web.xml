@@ -88,6 +88,12 @@
   	<description></description>
   	<servlet-class>com.xxx.messageBo.servlet.RegisterServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>AddFriendServlet</servlet-name>
+  	<display-name>AddFriendServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.xxx.messageBo.servlet.AddFriendServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>AddUserServlet</servlet-name>
   	<url-pattern>/AddUserServlet</url-pattern>
@@ -143,5 +149,9 @@
   <servlet-mapping>
   	<servlet-name>RegisterServlet</servlet-name>
   	<url-pattern>/RegisterServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AddFriendServlet</servlet-name>
+  	<url-pattern>/AddFriendServlet</url-pattern>
   </servlet-mapping>
 </web-app>

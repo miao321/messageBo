@@ -30,7 +30,7 @@
 	
 	<div class="row" style="margin-top:100px;align:center">
 		<div class="col-sm-offset-4 col-sm-4" style="background:#eee;width:500px;border-radius:8px;box-shadow:5px 5px 5px #333">
-			<form action="" method="post" class="form-horizontal" role="form" >
+			<form action="RegisterServlet" method="post" class="form-horizontal" role="form" >
 				<div class="form-group">
 					<div class="col-sm-12" style="margin-top:15px;">
 						<input type="text" id="userName" name="userName" class="form-control" placeholder="请输入用户名">
@@ -48,7 +48,7 @@
 				</div>
 				<div class="form-group">
 					<div class="col-sm-12">
-						<button type="submit" class="btn btn-primary" class="form-control" style="width:100%" onclick="doUserRegister()" value="注册">注册</button>
+						<button type="submit" class="btn btn-primary" class="form-control" style="width:100%" >注册</button>
 					</div>
 				</div>
 				

@@ -88,7 +88,7 @@ function doUserLogin(){
 				alert('密码错误！');
 			}
 		},
-		error:function(){
+		error:function(XMLHttpRequest,textStatus,errorThrown){
 			alert('请求数据失败！');
 		}
 	});
@@ -107,7 +107,7 @@ function doUserRegister(){
 	$.ajax({
 		type:"post",
 		url:"RegisterServlet",
-		dateType:"text",
+		dataType:"text",
 		data:{
 			'userName':userName,
 			'password':password
@@ -119,7 +119,7 @@ function doUserRegister(){
 				alert('注册失败');
 			}
 		},
-		error:function(){
+		error:function(XMLHttpRequest,textStatus,errorThrown){
 			alert('请求数据失败！');
 		}
 	});
@@ -258,5 +258,10 @@ function doAddUser(){
 			alert('请求数据失败！');
 		}
 	});
+}
+
+//-----------------addFriend-------------=
+function doAddFriend(){     
+	location.href='AddFriendServlet?relationId='+relationId;
 }
 

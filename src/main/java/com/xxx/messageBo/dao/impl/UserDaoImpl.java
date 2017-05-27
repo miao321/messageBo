@@ -24,7 +24,7 @@ public class UserDaoImpl implements UserDao {
 	
 	public User loginSelect(String loginName,String password){
 		User user=new User();
-		String sql="select * from users where username='"+loginName+"' and password='"+password+"'";
+		String sql="select * from tb_users where username='"+loginName+"' and password='"+password+"'";
 		try{
 			Connection conn=ConnectionFactory.getConnection();
 			Statement st=conn.createStatement();
@@ -47,7 +47,7 @@ public class UserDaoImpl implements UserDao {
 	
 	public boolean changePassword(int userId,String psw,String psw1 ){
 		ControlDB cd=new ControlDB();
-		String sql="update users set password='"+psw1+"' where userId='"+userId+"' and password='"+psw+"'";
+		String sql="update tb_users set password='"+psw1+"' where userId='"+userId+"' and password='"+psw+"'";
 		boolean flag=false;
 		try{
 			flag=cd.executeUpdate(sql);
@@ -65,7 +65,7 @@ public class UserDaoImpl implements UserDao {
 		conn=ConnectionFactory.getConnection();
 		try{
 			st=conn.createStatement();
-			String sql="select * from users where role=0";
+			String sql="select * from tb_users where role=0";
 			rs=st.executeQuery(sql);
 			while(rs.next()){
 				User user=new User();
@@ -87,7 +87,7 @@ public class UserDaoImpl implements UserDao {
 		Connection conn=null;
 		Statement st=null;
 		ResultSet rs=null;
-		String sql="select * from users where role=0 and username='"+username+"'";
+		String sql="select * from tb_users where role=0 and username='"+username+"'";
 		try{
 			st=conn.createStatement();
 			rs=st.executeQuery(sql);
@@ -115,7 +115,7 @@ public class UserDaoImpl implements UserDao {
 	
 	public boolean setUserTag(int userId,int type){
 		ControlDB cd=new ControlDB();
-		String sql="update users set tag='"+type+"' where userId='"+userId+"'";
+		String sql="update tb_users set tag='"+type+"' where userId='"+userId+"'";
 		boolean flag=false;
 		try{
 			flag=cd.executeUpdate(sql);
@@ -131,7 +131,7 @@ public class UserDaoImpl implements UserDao {
 		PreparedStatement ptst=null;
 		ResultSet rs=null;
 		int tag=0;
-		String sql="select * from users where userId=?";
+		String sql="select * from tb_users where userId=?";
 		try{
 			ptst=conn.prepareStatement(sql);
 			ptst.setInt(1,userId);
@@ -148,7 +148,7 @@ public class UserDaoImpl implements UserDao {
 	
 	public boolean insertUser(String username,String psw){
 		ControlDB cd=new ControlDB();
-		String sql="insert into users(username,password,tag,role) values('"+username+"','"+psw+"','"+0+"','"+0+"')";
+		String sql="insert into tb_users(username,password,tag,role) values('"+username+"','"+psw+"','"+0+"','"+0+"')";
 		boolean flag=false;
 		try{
 			flag=cd.executeUpdate(sql);
@@ -160,7 +160,7 @@ public class UserDaoImpl implements UserDao {
 	
 	public boolean deleteUser(int userId){
 		ControlDB cd=new ControlDB();
-		String sql="delete from users where userId='"+userId+"'";
+		String sql="delete from tb_users where userId='"+userId+"'";
 		boolean flag=false;
 		try{
 			flag=cd.executeUpdate(sql);

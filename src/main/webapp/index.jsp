@@ -41,6 +41,7 @@
 						<li><a href="login.jsp">用户登录</a></li>
 						<li><a href="adminLogin.jsp">管理员登陆</a></li>
 						<li><a href="register.jsp">注册</a></li>
+						
 						<%
 							}
 							if(role==1){
@@ -51,7 +52,7 @@
 							if(user!=null){
 						%>
 						<li><a href="changePassword.jsp">修改密码</a></li>
-						<li><a href="#">我的好友</a></li>
+						<li><a href="friendsList.jsp">我的好友</a></li>
 						<li><a href="ExitServlet">注销</a></li>
 						<li style="float: right;margin-right:-290px;color:white;padding:0 20px;font-size: 14px;font-weight: bold;">欢迎您:<%=user.getUsername() %></li>
 						<%
@@ -64,8 +65,10 @@
 			
 			<div id="title">
 				<form action="SelectServlet" method="post">
-					<div class="col search"><input type="submit" value="搜索"></div>
-					<div class="col"><input type="text" name="author" size="20"></div>
+					<div class="col search">
+						<input type="submit" style="width:50px;height: 30px;border-radius:8px;font-size: 14px;font-weight: bold;" value="搜索">
+					</div>
+					<div class="col"><input type="text" name="author"  placeholder="请输入用户名" style="width:200px;height: 30px;border-radius:8px;padding:2px 4px;"></div>
 				</form>
 			</div>
 			<%--end of id="title" --%>
@@ -98,11 +101,19 @@
 					<li class="func"><img src="images/edit.png" alt="编辑" onclick="jump(<%=msg.getMessageId()%>)"></li>
 					<%
 							}
-						}if(!author.equals(msg.getAuthor())){
-					%>
-					<li class="func"><span class="glyphicon glyphicon-plus"></span></li>
-					<%
 						}
+					/* List<Relation> relations=(List<Relation>)request.getAttribute("relationList");
+					if(relations!=null){
+						for(Relation rel:relations){ */
+							if(!author.equals(msg.getAuthor())){
+					
+							
+					%>
+					<li class="func"><span class="glyphicon glyphicon-plus" onclick="AddFriendServlet"></span></li>
+					<%
+							}
+					/* 	}	
+					} */
 					%>
 					<li class="nav">
 						<strong>
