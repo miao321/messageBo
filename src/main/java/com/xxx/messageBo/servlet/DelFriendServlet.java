@@ -7,21 +7,31 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.xxx.messageBo.dao.MessageDao;
-import com.xxx.messageBo.dao.impl.MessageDaoImpl;
+import com.xxx.messageBo.dao.RelationDao;
+import com.xxx.messageBo.dao.UserDao;
+import com.xxx.messageBo.dao.impl.RelationDaoImpl;
+import com.xxx.messageBo.dao.impl.UserDaoImpl;
 
 /**
- * Servlet implementation class SelectServlet
+ * Servlet implementation class DelFriendServlet
  */
-public class SelectServlet extends HttpServlet {
+public class DelFriendServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public DelFriendServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doPost(request,response);
+		doPost(request, response);
 	}
 
 	/**
@@ -29,16 +39,11 @@ public class SelectServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		MessageDao messageDao=new MessageDaoImpl();		
-		request.setCharacterEncoding("UTF-8");
-		String author=request.getParameter("author");
-		if(author==null||author==""){
-			request.setAttribute("messageList", messageDao.getAllMessage());
-		}else{
-			request.setAttribute("messageList", messageDao.selectByAuthor(author));
+		RelationDao relationDao = new RelationDaoImpl();
+		int friendId=Integer.parseInt(request.getParameter("friendId"));
+		if(relationDao.deleteFriend(friendId)){
+			response.sendRedirect("friendsList.jsp");
 		}
-		request.getRequestDispatcher("index.jsp").forward(request, response);
-		
 	}
 
 }

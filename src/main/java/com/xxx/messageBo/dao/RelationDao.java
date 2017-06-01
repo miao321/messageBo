@@ -17,7 +17,9 @@ public interface RelationDao {
 	 * @param friendId
 	 * @return boolean
 	 */
-	public boolean addFriend(int userId,int friendId);
+	public boolean addFriend(String userId,String friendId);
+	
+	public boolean addFriend(Relation relation);
 	
 	/**
 	 * 查看好友
@@ -31,5 +33,14 @@ public interface RelationDao {
 	 * @return Relation<list>
 	 */
 	 public List<Relation> getAllFriends();
+	 
+	 /**
+	  * 删除好友
+	  * @param friendId
+	  * @return boolean
+	  */
+	 public boolean deleteFriend(int friendId);
+
+	
 
 }

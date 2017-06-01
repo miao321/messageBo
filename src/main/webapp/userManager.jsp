@@ -31,13 +31,15 @@
 				</div>
 				<div id="title">
 					<form action="SelectUserServlet" method="post">
-						<div class="col"><input type="submit" value="索搜"></div>
-						<div class="col"><input type="text" id="user" size="20"></div>
+						<div class="col search">
+							<input type="submit" style="width:50px;height: 30px;margin-top:-20px;border-radius:8px;font-size: 14px;font-weight: bold;" value="搜索">
+						</div>
+						<div class="col"><input type="text" name="author"  placeholder="请输入用户名" style="width:200px;height: 30px;margin-top:-20px;border-radius:8px;padding:0 4px;"></div>
 					</form>
 				</div>
 			</div>
 			
-			<div><img src="images/add.png"></div>
+			<div><img src="images/add.jpg"></div>
 			
 			<table id="table" bordercolor="#99CCFF" border='1px' cellspacing='0px'>
 				<tr bgcolor="#e4eef9" height="36px">

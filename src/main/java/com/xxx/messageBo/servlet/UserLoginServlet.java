@@ -9,8 +9,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.xxx.messageBo.bean.Relation;
 import com.xxx.messageBo.bean.User;
+import com.xxx.messageBo.dao.RelationDao;
 import com.xxx.messageBo.dao.UserDao;
+import com.xxx.messageBo.dao.impl.RelationDaoImpl;
 import com.xxx.messageBo.dao.impl.UserDaoImpl;
 
 /**
@@ -41,17 +44,22 @@ public class UserLoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		UserDao userDao=new UserDaoImpl();
+		RelationDao relationdao=new RelationDaoImpl();
 		PrintWriter pw=response.getWriter();
 		HttpSession session=request.getSession();
 		String loginName=request.getParameter("loginName");
-		System.out.println("loginName1:" + loginName);
+		//System.out.println("loginName1:" + loginName);
 		String password=request.getParameter("password");
-		System.out.println("password:"+password);
+		//System.out.println("password:"+password);
+		String userId=request.getParameter("userId");
+		String friendId=request.getParameter("friendId");
 		User user=(User)userDao.loginSelect(loginName, password);
+		//Relation relation=(Relation)relationdao.addFriend(userId, friendId);
 		if(user.getUsername()==null||user.getRole()==1||user.getUsername()==" "){
 			response.sendRedirect("error.jsp");
 		}else{	
 			session.setAttribute("user", user);
+			//session.setAttribute("rel", relation);
 			if(loginName==""||password==""){
 				response.sendRedirect("error.jsp");
 			}else{

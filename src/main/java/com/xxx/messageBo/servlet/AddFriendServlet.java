@@ -44,18 +44,26 @@ public class AddFriendServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		RelationDao relationDao=new RelationDaoImpl();
-		UserDao userDao=new UserDaoImpl();
+		UserDao userDao = new UserDaoImpl();
+		//UserDao userDao=new UserDaoImpl();
 		PrintWriter pw=response.getWriter();
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("Utf-8");
 		HttpSession session=request.getSession();
 		User user=(User)session.getAttribute("user");
-		Relation rel=(Relation)session.getAttribute("rel");
-		int userId=rel.getUserId();
-		int friendId=rel.getFriendId();
-		String setTime=rel.getDate();
-		
-		
+//		Relation rel=(Relation)session.getAttribute("rel");
+//		int userId=rel.getUserId();
+//		int friendId=rel.getFriendId();
+		//String setTime=rel.getDate();
+		//int userId=request.getParameter("userId");
+		String authorName=request.getParameter("author");
+//		System.out.println("authorName:" + authorName);
+		String friendId = String.valueOf(userDao.selectUser(authorName).get(0).getUserId());
+		String userId = String.valueOf(user.getUserId());
+		//relationDao.addFriend(relation);
+//		System.out.println("userId:" + userId);
+//		System.out.println("friendId:" + friendId);
+		relationDao.addFriend(userId, friendId);
 		
 	}
 

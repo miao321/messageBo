@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50711
 File Encoding         : 65001
 
-Date: 2017-05-27 09:18:11
+Date: 2017-06-01 12:08:51
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -25,7 +25,7 @@ CREATE TABLE `tb_message` (
   `context` varchar(255) NOT NULL,
   `msgdate` datetime NOT NULL,
   PRIMARY KEY (`messageId`)
-) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tb_message
@@ -40,6 +40,7 @@ INSERT INTO `tb_message` VALUES ('8', 'wangwu', '我是王五', '2017-05-11 12:1
 INSERT INTO `tb_message` VALUES ('12', 'miao', '还要签到', '2017-05-16 22:23:12');
 INSERT INTO `tb_message` VALUES ('13', 'miao', '签到', '2017-05-17 10:21:52');
 INSERT INTO `tb_message` VALUES ('14', 'miao', '还要签到', '2017-05-17 10:22:06');
+INSERT INTO `tb_message` VALUES ('16', 'miao', 'jin tian 31 hao', '2017-05-31 21:08:06');
 
 -- ----------------------------
 -- Table structure for `tb_relation`
@@ -53,11 +54,13 @@ CREATE TABLE `tb_relation` (
   PRIMARY KEY (`relationId`),
   KEY `FK_relation_users` (`userId`),
   KEY `FK_tb_relation_users` (`friendId`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tb_relation
 -- ----------------------------
+INSERT INTO `tb_relation` VALUES ('1', '1', '1', '2016-12-31 13:13:13');
+INSERT INTO `tb_relation` VALUES ('2', '2', '7', '2017-06-01 11:21:55');
 
 -- ----------------------------
 -- Table structure for `tb_shenqing`
@@ -86,7 +89,7 @@ CREATE TABLE `tb_users` (
   `tag` int(5) NOT NULL,
   `role` int(255) NOT NULL,
   PRIMARY KEY (`userId`)
-) ENGINE=MyISAM AUTO_INCREMENT=72 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=73 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tb_users
@@ -100,12 +103,10 @@ INSERT INTO `tb_users` VALUES ('6', 'lisi', 'lisi', '0', '0');
 INSERT INTO `tb_users` VALUES ('7', 'wangwu', 'wangwu', '0', '0');
 INSERT INTO `tb_users` VALUES ('8', 'lisi', 'lisi', '0', '0');
 INSERT INTO `tb_users` VALUES ('62', '432', '432', '0', '0');
-INSERT INTO `tb_users` VALUES ('63', '', '', '0', '0');
 INSERT INTO `tb_users` VALUES ('64', '321', '321', '0', '0');
 INSERT INTO `tb_users` VALUES ('65', '222', '22', '0', '0');
 INSERT INTO `tb_users` VALUES ('66', '333', '333', '0', '0');
 INSERT INTO `tb_users` VALUES ('67', '4444', '44', '0', '0');
 INSERT INTO `tb_users` VALUES ('68', '555', '555', '0', '0');
 INSERT INTO `tb_users` VALUES ('69', '666', '66', '0', '0');
-INSERT INTO `tb_users` VALUES ('70', '777', '777', '0', '0');
-INSERT INTO `tb_users` VALUES ('71', '888', '888', '0', '0');
+INSERT INTO `tb_users` VALUES ('72', '六一', '61', '0', '1');

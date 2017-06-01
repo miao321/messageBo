@@ -24,11 +24,26 @@ import com.xxx.messageBo.util.DbClose;
 
 public class RelationDaoImpl implements RelationDao{
 	
-	public boolean addFriend(int userId,int friendId){
+	public boolean addFriend(String userId,String friendId){
+		
 		ControlDB cd=new ControlDB();		
 		String setTime=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime());
 		//String sql="select * from tb_users where tb_users.userId=tb_relation.userId";
-		String sql="insert into tb_relation(userId,friendId,setTime values('"+userId+"','"+friendId+"','"+setTime+"')";
+		String sql="insert into tb_relation(userId,friendId,setTime) values('"+userId+"','"+friendId+"','"+setTime+"')";
+		boolean flag=false;
+		try{
+			flag=cd.executeUpdate(sql);
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		return flag;
+	}
+	
+	
+	public boolean addFriend(Relation relation){
+		ControlDB cd=new ControlDB();
+		String setTime=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime());
+		String sql="insert into tb_relation(relationId,userId,friendId,setTime) values(?,?,?,?)";
 		boolean flag=false;
 		try{
 			flag=cd.executeUpdate(sql);
@@ -82,8 +97,8 @@ public class RelationDaoImpl implements RelationDao{
 			while(rs.next()){
 				Relation rel = new Relation();
 				rel.setRelationId(rs.getInt("relationId"));
-				rel.setUserId(rs.getInt("userId"));
-				rel.setFriendId(rs.getInt("friendId"));
+				rel.setUserId(rs.getString("userId"));
+				rel.setFriendId(rs.getString("friendId"));
 				rel.setDate(rs.getString("setTime"));
 				list.add(rel);
 			}
@@ -93,6 +108,20 @@ public class RelationDaoImpl implements RelationDao{
 			e.printStackTrace();
 		}
 		return list;
+	}
+	
+	
+	public boolean deleteFriend(int friendId){
+		ControlDB cd = new ControlDB();
+		String sql="delete from tb_relation where friendId='"+friendId+"'";
+		boolean flag=false;
+		try{
+			flag=cd.executeUpdate(sql);
+					
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		return flag;
 	}
 
 }

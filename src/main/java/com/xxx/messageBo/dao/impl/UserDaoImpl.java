@@ -84,7 +84,7 @@ public class UserDaoImpl implements UserDao {
 	
 	public List<User> selectUser(String username){
 		List<User> list=new ArrayList<User>();
-		Connection conn=null;
+		Connection conn=ConnectionFactory.getConnection();
 		Statement st=null;
 		ResultSet rs=null;
 		String sql="select * from tb_users where role=0 and username='"+username+"'";
@@ -148,7 +148,7 @@ public class UserDaoImpl implements UserDao {
 	
 	public boolean insertUser(String username,String psw){
 		ControlDB cd=new ControlDB();
-		String sql="insert into tb_users(username,password,tag,role) values('"+username+"','"+psw+"','"+0+"','"+0+"')";
+		String sql="insert into tb_users(username,password,tag,role) values('"+username+"','"+psw+"','"+0+"','"+1+"')";
 		boolean flag=false;
 		try{
 			flag=cd.executeUpdate(sql);

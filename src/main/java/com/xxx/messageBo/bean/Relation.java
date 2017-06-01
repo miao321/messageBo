@@ -7,13 +7,13 @@ package com.xxx.messageBo.bean;
 
 public class Relation {
 	private int relationId;
-	private int userId;
-	private int friendId;
+	private String userId;
+	private String friendId;
 	private String date;
 	
 	public Relation(){}
 	
-	public Relation(int relationId,int userId,int friendId,String date){
+	public Relation(int relationId,String userId,String friendId,String date){
 		this.relationId=relationId;
 		this.userId=userId;
 		this.friendId=friendId;
@@ -28,19 +28,19 @@ public class Relation {
 		this.relationId = relationId;
 	}
 
-	public int getUserId() {
+	public String getUserId() {
 		return userId;
 	}
 
-	public void setUserId(int userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 
-	public int getFriendId() {
+	public String getFriendId() {
 		return friendId;
 	}
 
-	public void setFriendId(int friendId) {
+	public void setFriendId(String friendId) {
 		this.friendId = friendId;
 	}
 

@@ -94,6 +94,18 @@
   	<description></description>
   	<servlet-class>com.xxx.messageBo.servlet.AddFriendServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>SelectFriendServlet</servlet-name>
+  	<display-name>SelectFriendServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.xxx.messageBo.servlet.SelectFriendServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>DelFriendServlet</servlet-name>
+  	<display-name>DelFriendServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.xxx.messageBo.servlet.DelFriendServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>AddUserServlet</servlet-name>
   	<url-pattern>/AddUserServlet</url-pattern>
@@ -153,5 +165,13 @@
   <servlet-mapping>
   	<servlet-name>AddFriendServlet</servlet-name>
   	<url-pattern>/AddFriendServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SelectFriendServlet</servlet-name>
+  	<url-pattern>/SelectFriendServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DelFriendServlet</servlet-name>
+  	<url-pattern>/DelFriendServlet</url-pattern>
   </servlet-mapping>
 </web-app>

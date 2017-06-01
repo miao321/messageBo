@@ -12,6 +12,9 @@
 <link href="css/style.css" rel="stylesheet" type="text/css">
 <script src="js/jquery-1.7.1.min.js" type="text/javascript"> </script>
 <script src="js/script.js" type="text/javascript"> </script>
+<link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.js"> </script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"> </script>
 </head>
 
 	<%
@@ -26,7 +29,18 @@
 
 <body>
 	<a name="top">      <%--设置锚点 --%>
+	<div class="navbar navbar-default navbar-fixed-top" style="background:#272727;color:white" >
+		<div class="container">
+			<div class="row" style="font-size:20px;margin-top:10px;">
+				<div class="col-sm-12">
+					留言
+					<h3 style="float:right;margin-right:500px;margin-top:0px;">悄悄的来，留下些东西吧~</h3>
+				</div>
+			</div>
+		</div>
+	</div>
 		<div id="page">
+		
 			<div id="logo" style="text-align:center;padding-top:15px">
 				<%--<img src="images/logo.jsp"> --%>
 			</div>
@@ -77,7 +91,7 @@
 				if(user!=null){
 			%>
 			<div id="col1">
-				<img src="images/add.png" onclick="domove()">
+				<img src="images/add.jpg" onclick="domove()">
 			</div>
 			<%
 				}
@@ -102,18 +116,21 @@
 					<%
 							}
 						}
-					/* List<Relation> relations=(List<Relation>)request.getAttribute("relationList");
-					if(relations!=null){
-						for(Relation rel:relations){ */
+					/*  */
 							if(!author.equals(msg.getAuthor())){
+								/* List<Relation> relations=(List<Relation>)request.getAttribute("relationList");
+								if(relations!=null){
+									for(Relation rel:relations){ */
 					
 							
 					%>
-					<li class="func"><span class="glyphicon glyphicon-plus" onclick="AddFriendServlet"></span></li>
+					
+					<li class="func"><a href="AddFriendServlet?author=<%=msg.getAuthor()%>"><span class="glyphicon glyphicon-plus" ></span></a></li>
+					
 					<%
 							}
-					/* 	}	
-					} */
+					 /* 	}	
+					}   */
 					%>
 					<li class="nav">
 						<strong>
