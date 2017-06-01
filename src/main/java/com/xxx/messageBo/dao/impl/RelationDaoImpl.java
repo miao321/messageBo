@@ -82,14 +82,14 @@ public class RelationDaoImpl implements RelationDao{
 		return user;
 	}
 	
-	public List<Relation> getAllFriends(){
+	public List<Relation> getAllFriends(String userId,String friendId){
 		List<Relation> list = new ArrayList<Relation>();
 		Connection conn=null;
 		Statement stmt=null;
 		ResultSet rs=null;
 //		String sql="select * from tb_relation order by relationId desc";
-		String sql="select * from tb_users where userId in (select friendId from tb_relation where userId = 1) or userId in (select userId from tb_relation where friendId = 1)";
-//		String sql="select * from tb_users where userId in (select friendId from tb_relation where userId = '"+userId+"') or userId in (select userId from tb_relation where friendId = '"+friendId+"')";
+//		String sql="select * from tb_users where userId in (select friendId from tb_relation where userId = 1) or userId in (select userId from tb_relation where friendId = 1)";
+		String sql="select * from tb_users where userId in (select friendId from tb_relation where userId = '"+userId+"') or userId in (select userId from tb_relation where friendId = '"+friendId+"')";
 				
 		try{
 			conn=ConnectionFactory.getConnection();
