@@ -28,7 +28,7 @@
 	
 	<div class="row" style="margin-top:100px;align:center;">
 		<div class="col-sm-offset-4 col-sm-4" style="background:#eee;width:500px;border-radius:8px;box-shadow:5px 5px 5px #333">
-			<form action="" method="post" role="form">
+			<form action="adminLoginServlet" method="post" role="form">
 				<div class="form-group" style="margin-top:15px">
 					<div class="col-sm-12">
 						<input type="text" id="loginName" name="loginName" class="form-control" placeholder="请输入用户名">
@@ -41,7 +41,7 @@
 				</div>
 				<div class="form-group">
 					<div class="col-sm-12" style="margin-top:15px;margin-bottom:15px;">
-						<button type="submit" id="login" class="btn btn-primary" class="form-control" style="width:100%" value="登录" onclick="doAdminLogin()">登录</button>
+						<button type="submit" id="login" class="btn btn-primary" class="form-control" style="width:100%" value="登录" >登录</button>
 					</div>
 				</div>
 				

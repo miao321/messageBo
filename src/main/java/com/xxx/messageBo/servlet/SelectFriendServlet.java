@@ -39,18 +39,18 @@ public class SelectFriendServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		UserDao userDao = new UserDaoImpl();
+//		UserDao userDao = new UserDaoImpl();
 		RelationDao relationDao = new RelationDaoImpl(); 
 		request.setCharacterEncoding("UTF-8");
-		String username=request.getParameter("user");
-		if(username==null||username==" "){
+//		String username=request.getParameter("user");
+//		if(username==null||username==" "){
 //			request.setAttribute("userList", userDao.getAllUser());
 			request.setAttribute("relationList", relationDao.getAllFriends());
-		}else{
+//		}else{
 //			request.setAttribute("userList", userDao.selectUser(username));
-			request.setAttribute("relationList", relationDao.searchFriends(username));
-		}
-		request.getRequestDispatcher("userManager.jsp").forward(request, response);
+//			request.setAttribute("relationList", relationDao.searchFriends(username));
+//		}
+//		request.getRequestDispatcher("userManager.jsp").forward(request, response);
 	
 	}
 

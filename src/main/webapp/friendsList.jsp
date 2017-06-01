@@ -10,14 +10,28 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.js"> </script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"> </script>
 <link href="css/style.css" rel="stylesheet" type="text/css">
 <script src="js/jquery-1.7.1.min.js" type="text/javascript"> </script>
 <script src="js/script.js" type="text/javascript"> </script>
+
+
 <title>好友列表</title>
 </head>
 <body>
 	<a name="top">
 		<div id="page">
+		<div class="navbar navbar-default navbar-fixed-top" style="background:#272727;color:white" >
+		<div class="container">
+			<div class="row" style="font-size:20px;margin-top:10px;">
+				<div class="col-sm-12">
+					我的好友
+				</div>
+			</div>
+		</div>
+	</div>
 			<div id="logo" style="text-align:center; padding-top:15px">
 				<%--<img src="images/logo.jpg"> --%>
 			</div>
@@ -32,17 +46,17 @@
 				<div id="title">
 					<form action="SelectUserServlet" method="post">
 						<div class="col search">
-							<input type="submit" style="width:50px;height: 30px;border-radius:8px;font-size: 14px;font-weight: bold;margin-top:-20px;" value="搜索">
+							<input type="submit" style="width:50px;height: 30px;border-radius:8px;font-size: 14px;font-weight: bold;margin-top:-10px;" value="搜索">
 						</div>
-						<div class="col"><input type="text" name="author"  placeholder="请输入用户名" style="width:200px;height: 30px;margin-top:-20px;border-radius:8px;padding:0 4px;"></div>
+						<div class="col"><input type="text" name="author"  placeholder="请输入用户名" style="width:200px;height: 30px;margin-top:-10px;border-radius:8px;padding:0 4px;"></div>
 					</form>
 				</div>
 			</div>
 			
 			<div><img src="images/add.jpg"></div>
 			
-			<table id="table" bordercolor="#99CCFF" border='1px' cellspacing='0px'>
-				<tr bgcolor="#e4eef9" height="36px">
+			<table id="table" bordercolor="#99CCFF" border='1px' cellspacing='0px' >
+				<tr bgcolor="#e4eef9" height="36px" >
 					<th>relationId</th>
 					<th>用户名</th>
 				

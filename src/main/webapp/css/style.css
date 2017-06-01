@@ -181,3 +181,7 @@ ul{
 	width:1000px;
 	margin: 24px auto;
 }
+#table th{
+	margin: 24px auto;
+	text-align:center;
+}

@@ -42,7 +42,7 @@ public class adminLoginServlet extends HttpServlet {
 			pw.println("failure");
 		}else{
 			session.setAttribute("user", user);
-			pw.println("success");
+			response.sendRedirect("SelectServlet");
 		}
 	}
 
