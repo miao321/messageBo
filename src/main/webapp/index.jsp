@@ -66,7 +66,8 @@
 							if(user!=null){
 						%>
 						<li><a href="changePassword.jsp">修改密码</a></li>
-						<li><a href="friendsList.jsp">我的好友</a></li>
+						
+						<li><a href="SelectFriendServlet">我的好友</a></li>
 						<li><a href="ExitServlet">注销</a></li>
 						<li style="float: right;margin-right:-290px;color:white;padding:0 20px;font-size: 14px;font-weight: bold;">欢迎您:<%=user.getUsername() %></li>
 						<%
@@ -126,7 +127,7 @@
 					%>
 					
 					<li class="func"><a href="AddFriendServlet?author=<%=msg.getAuthor()%>"><span class="glyphicon glyphicon-plus" ></span></a></li>
-					
+					<li class="func"><a href="review.jsp"><span class="glyphicon glyphicon-envelope"></span></a></li>
 					<%
 							}
 					 /* 	}	

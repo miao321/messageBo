@@ -32,7 +32,7 @@ public interface RelationDao {
 	 * 获取所有好友
 	 * @return Relation<list>
 	 */
-	 public List<Relation> getAllFriends(String userId,String friendId);
+	 public List<User> getAllFriends(String userId);
 	 
 	 /**
 	  * 删除好友

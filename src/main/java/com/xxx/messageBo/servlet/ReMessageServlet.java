@@ -1,6 +1,7 @@
 package com.xxx.messageBo.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -9,21 +10,21 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.xxx.messageBo.bean.User;
-import com.xxx.messageBo.dao.RelationDao;
+import com.xxx.messageBo.dao.MessageDao;
 import com.xxx.messageBo.dao.UserDao;
-import com.xxx.messageBo.dao.impl.RelationDaoImpl;
+import com.xxx.messageBo.dao.impl.MessageDaoImpl;
 import com.xxx.messageBo.dao.impl.UserDaoImpl;
 
 /**
- * Servlet implementation class SelectFriendServlet
+ * Servlet implementation class ReMessageServlet
  */
-public class SelectFriendServlet extends HttpServlet {
+public class ReMessageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SelectFriendServlet() {
+    public ReMessageServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -41,30 +42,25 @@ public class SelectFriendServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		UserDao userDao = new UserDaoImpl();
-		RelationDao relationDao = new RelationDaoImpl(); 
 		request.setCharacterEncoding("UTF-8");
-		
+		MessageDao messageDao=new MessageDaoImpl();
+		UserDao userDao=new UserDaoImpl();
+		PrintWriter pw=response.getWriter();
 		HttpSession session=request.getSession();
 		User user=(User)session.getAttribute("user");
+		String content=request.getParameter("content");  //这里有毛病
+		int userId=user.getUserId();
 		
-		String authorName=request.getParameter("author");
-		String userId = String.valueOf(user.getUserId());
-//		String friendId = String.valueOf(userDao.selectUser(authorName).get(0).getUserId());
-
-		System.out.println(userId);
+		String author=user.getUsername();
+		int tag=userDao.getUserTag(userId);
 		
-		
-//		String username=request.getParameter("user");
-//		if(username==null||username==" "){
-//			request.setAttribute("userList", userDao.getAllUser());
-			request.setAttribute("relationList", relationDao.getAllFriends(userId));
-//		}else{
-//			request.setAttribute("userList", userDao.selectUser(username));
-//			request.setAttribute("relationList", relationDao.searchFriends(username));
-//		}
-		request.getRequestDispatcher("friendsList.jsp").forward(request, response);
-	
+		if(tag==0){
+			messageDao.insertMessage(author, content);
+			pw.println("success");
+			
+		}else{
+			pw.println("failure");
+		}
 	}
 
 }

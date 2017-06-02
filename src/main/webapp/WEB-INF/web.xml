@@ -106,6 +106,12 @@
   	<description></description>
   	<servlet-class>com.xxx.messageBo.servlet.DelFriendServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ReMessageServlet</servlet-name>
+  	<display-name>ReMessageServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.xxx.messageBo.servlet.ReMessageServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>AddUserServlet</servlet-name>
   	<url-pattern>/AddUserServlet</url-pattern>
@@ -173,5 +179,9 @@
   <servlet-mapping>
   	<servlet-name>DelFriendServlet</servlet-name>
   	<url-pattern>/DelFriendServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ReMessageServlet</servlet-name>
+  	<url-pattern>/ReMessageServlet</url-pattern>
   </servlet-mapping>
 </web-app>

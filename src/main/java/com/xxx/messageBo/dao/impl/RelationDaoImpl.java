@@ -82,14 +82,14 @@ public class RelationDaoImpl implements RelationDao{
 		return user;
 	}
 	
-	public List<Relation> getAllFriends(String userId,String friendId){
-		List<Relation> list = new ArrayList<Relation>();
+	public List<User> getAllFriends(String userId){
+		List<User> list = new ArrayList<User>();
 		Connection conn=null;
 		Statement stmt=null;
 		ResultSet rs=null;
 //		String sql="select * from tb_relation order by relationId desc";
 //		String sql="select * from tb_users where userId in (select friendId from tb_relation where userId = 1) or userId in (select userId from tb_relation where friendId = 1)";
-		String sql="select * from tb_users where userId in (select friendId from tb_relation where userId = '"+userId+"') or userId in (select userId from tb_relation where friendId = '"+friendId+"')";
+		String sql="select * from tb_users where userId in (select friendId from tb_relation where userId = '"+userId+"') or userId in (select userId from tb_relation where friendId = '"+userId+"')";
 				
 		try{
 			conn=ConnectionFactory.getConnection();
@@ -98,12 +98,12 @@ public class RelationDaoImpl implements RelationDao{
 			
 			//读取好友信息
 			while(rs.next()){
-				Relation rel = new Relation();
-				rel.setRelationId(rs.getInt("relationId"));
-				rel.setUserId(rs.getString("userId"));
-				rel.setFriendId(rs.getString("friendId"));
-				rel.setDate(rs.getString("setTime"));
-				list.add(rel);
+				User user=new User();
+				user.setUserId(rs.getInt("userId"));
+				user.setUsername(rs.getString("username"));
+				user.setPassword(rs.getString("password"));
+				user.setTag(rs.getInt("tag"));
+				list.add(user);
 			}
 			//关闭连接对象
 			DbClose.close(rs, stmt, conn);

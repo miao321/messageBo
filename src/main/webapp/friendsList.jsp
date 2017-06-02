@@ -67,11 +67,11 @@
 				if(users!=null){
 					for(User user:users){
 				%> --%>
-			 <c:forEach var="relation" items="${relationList }"> 
+			 <c:forEach var="relation" items="${relationList }" varStatus="status"> 
 					<tr height="36px">
-						<th>${relation.relationId }</th> 
-						<th>${relation. }</th>
-						<th><a href="DelFriendServlet?relationId=${relation.relationId }">删除</a></th>
+						<th>${status.index + 1}</th> 
+						<th>${relation.username}</th> 
+						<th><a href="DelFriendServlet?relationId=${relation.userId}">删除</a></th>
 					</tr>
 				</c:forEach> 
 				<%-- <%
